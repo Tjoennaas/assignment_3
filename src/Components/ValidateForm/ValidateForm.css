@@ -1,0 +1,30 @@
+
+
+import {useState} from 'react';
+
+
+export function validateForm() {
+    const [errors, setErrors] = useState({
+        title: "",
+        expenseAmount: "",
+        date: "",
+        category: "",
+    });
+
+    const validateForm = ({ title, expenseAmount, date, category }) => {
+        const newErrors = {};
+        if (!title) newErrors.title = "Title is required.";
+        if (!expenseAmount) newErrors.expenseAmount = "Amount is required.";
+        if (!date) newErrors.date = "Date is required.";
+        if (!category) newErrors.category = "Category is required.";
+        setErrors(newErrors);
+        return Object.keys(newErrors).length === 0;
+    };
+
+    return { errors, validateForm };
+}
+
+export function FormFieldError({ message }) {
+    if (!message) return null;
+    return <div style={{ color: 'red' }}>{message}</div>;
+}
