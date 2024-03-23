@@ -1,6 +1,4 @@
 
-
-//shild, the renderd list
  
 function RenderdExpenseList({ expenses, onRemoveExpense }) {
     return (
@@ -12,7 +10,8 @@ function RenderdExpenseList({ expenses, onRemoveExpense }) {
               <span>{expense.title}</span>
               <span>{expense.category}</span>
               <span>{expense.date}</span>
-              <span>{expense.expenseAmount.toFixed()}</span>
+              <span>{expense.expenseAmount.toFixed(2)}</span>     
+             
               <button onClick={() => onRemoveExpense(expense.id)}>Remove</button>
             </li>
           ))}
