@@ -1,35 +1,39 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+
+ import { useState } from 'react';
+ import ExpenseForm from '../ExpenseForm/ExpenseForm'; 
+ import RenderdExpenseList from '../RenderdExpenseList/RenderdExpenseList'; 
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [expenses, setExpenses] = useState([]);        //setExpenses : Use to update the expenses state.
+
+  const addExpense = (newExpense) => {
+     setExpenses((prevExpenses) =>         //PrevExpenses: Represents the current state of the expenses before the update.                       
+     [...prevExpenses, newExpense]);          //The spread operator ... is used to expand prevExpenses into its individual elements and add new expense to the array.                 
+                                                                 
+  };
+
+  const removeExpense = (id) => {                            
+    setExpenses((prevExpenses) =>                    // SetExpenses((prevExpenses): Represents the current state of the expenses list before any changes                   
+    prevExpenses.filter((expense) =>                 // PrevExpense.filter:  Iterates over prevExpenses.
+    expense.id !== id));                              //.filter(expense): Decide whether each element should be included in the new array.
+                                                     // expense.id !== id: ID is not the same as the id you want to remove(true)
+                                                     
+   };                                   
+
+  const totalExpenses = expenses.reduce((sum, expense) => 
+         sum + expense.expenseAmount, 0);
+         
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <ExpenseForm onAddExpense={addExpense} />
+
+      <RenderdExpenseList expenses={expenses} onRemoveExpense={removeExpense} />
+
+      <div>Total Expenses: ${totalExpenses.toFixed(2)}</div>
+
     </>
-  )
+  );
 }
 
-export default App
+export default App;
