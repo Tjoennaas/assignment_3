@@ -1,0 +1,31 @@
+
+
+.flexContainer {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+  
+  }
+
+  .totalExpenses{
+    color: rgb(246, 4, 190);
+    display: flex;
+    justify-content: center;
+  
+    border: 1px solid rgb(28, 238, 28);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1)
+
+  }
+
+
+ 
+  @media screen and ( min-width: 500px ){
+
+    .flexContainer{ display: flex;
+    flex-direction: row; 
+    align-items: center;
+    gap:6rem;
+  
+   
+  } 
+}
