@@ -1,0 +1,33 @@
+
+
+body{
+
+  padding-left: 3rem;
+
+}
+
+.expense_information{
+  
+  margin-top: 3rem;
+}
+
+.expense_form {
+
+   color: rgb(246, 4, 190);
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(9, 249, 61);
+    padding: 5rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    gap: 1rem;
+  }
+  
+  .button {
+
+    color: rgb(246, 4, 190);
+    border: none;
+    cursor: pointer;
+  }
+  
+  
+  
