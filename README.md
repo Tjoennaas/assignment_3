@@ -8,7 +8,7 @@ I use the React library to create a expense tracker, the validation must be impl
 
 Status: Working and stable. Form working according to criterias in the first section of this text.
 Browser support: No known browser issues.
-The webpage has responsive design suited for all formats.
+The webpage has responsive design suited  for bigger screens.
 Referances:
           The Road to React av Robin Wieruch
          The resources is mainly used due to work with JavaScrip. Mostly things we learned in-and from the documentation of- lectures at school.
